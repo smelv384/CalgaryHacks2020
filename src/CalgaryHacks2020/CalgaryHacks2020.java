@@ -89,10 +89,14 @@ public class CalgaryHacks2020 {
     }
 
     public static void viewSchedule() {
-        //render studentSchedule
+
+        //present user.getSchedule
+        if (/*User selects to create an assignment*/) {
+
+        }
     }
 
-    public static void addAssignment(String studentClass) {
+    public static void addAssignment(Event dateTime) {
 
 
         Assignment newAssignment = new Assignment();
