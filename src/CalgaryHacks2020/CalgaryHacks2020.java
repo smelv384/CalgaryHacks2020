@@ -13,11 +13,13 @@ public class CalgaryHacks2020 {
 
     public static void main(String[] args) {
         StudentReader reader = new StudentReader();
+        //creating dummy students to interact with the user
         Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
         Student bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
         Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
+
 
 
 		StringFrame stringFrame = new StringFrame();
@@ -34,7 +36,7 @@ public class CalgaryHacks2020 {
         System.out.println("Please enter your ucID");
         ucID = kb.next();
 
-        //TODO: build schedule based on UCID
+
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
         myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
         Schedule studentSchedule = new Schedule();
@@ -54,8 +56,27 @@ public class CalgaryHacks2020 {
 
         kb.close();
 
+    }
+
+    public static void viewCollabRequests() {
+        //show list of collab requests
+    }
+
+    public static void viewSchedule() {
+        //render studentSchedule
+    }
+
+    public static void addAssignment(String studentClass) {
 
 
+        Assignment newAssignment = new Assignment();
+        if (/*some condition, will be set in the GUI*/) {
+            createCollabRequest();
+        }
+
+    }
+
+    public static void createCollabRequest() {
 
     }
 
