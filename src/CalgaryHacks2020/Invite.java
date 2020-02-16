@@ -4,7 +4,7 @@ import java.util.GregorianCalendar;
 
 public class Invite {
 	int[] timeSlot;
-	Student inviter;
+	ArrayList<Student> students;
 	Assignment assignment;
 	GregorianCalendar dueDate;
 	
@@ -14,11 +14,15 @@ public class Invite {
 	 * @param assignment
 	 * @param dueDate
 	 */
-	public Invite(int[] timeSlot, Student inviter, Assignment assignment, GregorianCalendar dueDate) {
+	public Invite(int[] timeSlot, ArrayList<Student> students, Assignment assignment, GregorianCalendar dueDate) {
 		this.timeSlot = timeSlot;
-		this.inviter = inviter;
+		this.students = students;
 		this.assignment = assignment;
 		this.dueDate = dueDate;
+	}
+	
+	public void addStudent(ArrayList<Student> students, Student studentToAdd) {
+		students.add(studentToAdd);
 	}
 
 }
