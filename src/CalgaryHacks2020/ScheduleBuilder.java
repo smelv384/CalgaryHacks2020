@@ -11,20 +11,15 @@ import java.util.Scanner;
 public class ScheduleBuilder {
 
 
-    public Schedule read(String fileName) {
-        Scanner in = new Scanner(System.in);
-        try {
-            File inFile = new File(fileName);
-            in = new Scanner(inFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Exceptional failure");
-        }
+    public static Schedule read(String fileName) throws FileNotFoundException {
+        File inFile = new File(fileName);
+        Scanner in = new Scanner(inFile);
 
         Schedule studSchedule = new Schedule();
 
         while (in.hasNext()) {
             String allInfo = in.nextLine();
-            String[] classParts = allInfo.split(" ");
+            String[] classParts = allInfo.split(" ", -1);
             String className = classParts[0];
             studSchedule.addClass(className);
 
