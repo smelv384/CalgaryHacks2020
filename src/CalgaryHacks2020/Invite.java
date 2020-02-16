@@ -19,11 +19,11 @@ public class Invite {
 		this.students = students;
 		this.assignment = assignment;
 	}
-	
+
 	public ArrayList<Student> getStudents() {
 		return students;
 	}
-	
+
 	public Assignment getAssignment() {
 		return assignment;
 	}
@@ -31,9 +31,20 @@ public class Invite {
 	public int[] getTimeSlot() {
 		return timeSlot;
 	}
-	
+
 	public void addStudent(ArrayList<Student> students, Student studentToAdd) {
 		students.add(studentToAdd);
+	}
+
+	@Override
+    public String toString() {
+	    String returnString = this.assignment.getName() + " \n";
+	    returnString = returnString + assignment.getClassName() + " \n";
+	    for (Student student : students) {
+	        returnString = returnString + student.getName() + " \n";
+	    }
+	    return returnString;
+
 	}
 
 }

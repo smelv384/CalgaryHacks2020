@@ -104,6 +104,9 @@ public class CalgaryHacks2020 {
 		mainPanel = new MainPanel();
 		notificationPanel = new NotificationPanel();
 
+		for (Invite invitation: userInvitations) {
+		    notificationPanel.addInviteToList(invitation);
+		}
 
 		for (String className : user.getStudentSchedule().getClassSet()) {
             classPanel.addClassToList(className);

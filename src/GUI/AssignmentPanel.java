@@ -1,41 +1,33 @@
 package GUI;
 
-import java.util.ArrayList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import java.awt.Color;
-import javax.swing.JList;
-import javax.swing.JButton;
-import javax.swing.JSplitPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.border.BevelBorder;
-import javax.swing.DefaultListModel;
-import javax.swing.AbstractListModel;
-import java.awt.Dimension;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
-import CalgaryHacks2020.CollabInvite;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+
 import CalgaryHacks2020.Assignment;
+import CalgaryHacks2020.CollabInvite;
 
 @SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
 	private ArrayList<Assignment> data = new ArrayList<Assignment>();
 	private JTextField textField;
 	private JTextField textField_1;
-	
+
 	public AssignmentPanel() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(0, 0, 200, 500);
@@ -46,7 +38,7 @@ public class AssignmentPanel extends JPanel {
 		gbl_panel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
-		
+
 		JButton btnNewButton_2 = new JButton("My Notifications");
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -54,7 +46,7 @@ public class AssignmentPanel extends JPanel {
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.notificationPanel);
 			}
 		});
-		
+
 		JButton myClassesBt = new JButton("My Classes");
 		myClassesBt.addMouseListener(new MouseAdapter() {
 			@Override
@@ -68,7 +60,7 @@ public class AssignmentPanel extends JPanel {
 		gbc_myClassesBt.gridx = 0;
 		gbc_myClassesBt.gridy = 0;
 		panel.add(myClassesBt, gbc_myClassesBt);
-		
+
 		JButton btnNewButton_1 = new JButton("My Assignments");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -90,7 +82,7 @@ public class AssignmentPanel extends JPanel {
 		gbc_btnNewButton_2.gridx = 0;
 		gbc_btnNewButton_2.gridy = 2;
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
-		
+
 		JButton myGroupsButton = new JButton("My Groups");
 		myGroupsButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -104,13 +96,13 @@ public class AssignmentPanel extends JPanel {
 		gbc_myGroupsButton.gridx = 0;
 		gbc_myGroupsButton.gridy = 3;
 		panel.add(myGroupsButton, gbc_myGroupsButton);
-		
+
 
         String[] columnNames = {"Assignments"};
 
         setLayout(null);
-        
-        Assignment[][] temp = {};
+
+        Assignment[][] temp = new Assignment[26][1];
         final JTable table = new JTable(temp, columnNames);
         table.addMouseListener(new MouseAdapter() {
         	@Override
@@ -125,7 +117,7 @@ public class AssignmentPanel extends JPanel {
         			}
         			//TOTO: add something to do with sending invites to the other users
         			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
-        			
+
         		}
         	}
         });
@@ -139,20 +131,20 @@ public class AssignmentPanel extends JPanel {
 
         //Add the scroll pane to this panel.
         add(scrollPane);
-        
+
         JPanel panel_1 = new JPanel();
         panel_1.setBounds(507, 0, 393, 500);
         add(panel_1);
         panel_1.setLayout(null);
-        
+
         JButton btnNewButton_4 = new JButton("+ Create Collaboration");
         btnNewButton_4.setBounds(112, 38, 185, 80);
         panel_1.add(btnNewButton_4);
-		
-		
-		
+
+
+
 	}
-	
+
 	//adds an assignment to the visible list. must be passed by reference
 	public void addAssignmentToList(Assignment ass)
 	{

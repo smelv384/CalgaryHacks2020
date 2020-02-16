@@ -17,7 +17,7 @@ public class Assignment {
     private String className; //the name of the class the assignment is for
 
     public Assignment(String name, int[] dateTime, int hours, String className) {
-        this.className = name;
+        this.name = name;
         this.dateTime = dateTime;
         this.hours = hours;
         this.className = className;
@@ -37,11 +37,11 @@ public class Assignment {
 	}
 
 	public String getName() {
-	    return name;
+	    return this.name;
 	}
 
 	public int[] getDate() {
-	    return dateTime;
+	    return this.dateTime;
 	}
 
 	public int getHours() {
@@ -49,6 +49,6 @@ public class Assignment {
 	}
 
 	public String getClassName() {
-	    return className;
+	    return this.className;
 	}
 }

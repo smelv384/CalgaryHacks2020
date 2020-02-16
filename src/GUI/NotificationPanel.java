@@ -100,12 +100,13 @@ public class NotificationPanel extends JPanel {
         setLayout(null);
 
 
-        Invite[][] otherData = new Invite[26][1];
+        Invite[][] otherData = new Invite[26][2];
         for (int i = 0; i < data.size();i++)
         {
             otherData[i][0] = data.get(i);
         }
         final JTable table = new JTable(otherData, columnNames);
+        table.setSize(800, 500);
         table.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent arg0) {
@@ -123,7 +124,7 @@ public class NotificationPanel extends JPanel {
         });
 
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+        table.setPreferredScrollableViewportSize(new Dimension(900, 100));
         table.setFillsViewportHeight(true);
 
         JButton btnNewButton = new JButton("Accept Invitation");
