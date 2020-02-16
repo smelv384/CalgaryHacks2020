@@ -10,20 +10,6 @@ import java.util.Set;
 
 public class CollabInvite {
 
-	private Student inviter;
-	private ArrayList<Student> possibleCollaborators;
-	private Assignment assignment;
-
-	/**
-	 * @param inviter - The person who is broadcasting their need for a study partner
-	 * @param possibleCollaborators - Every other student in the program - evaluated for other factors later
-	 * @param assignment - The assignment/test that is being studied for
-	 */
-	public CollabInvite(Student inviter, ArrayList<Student> possibleCollaborators, Assignment assignment) {
-		this.inviter = inviter;
-		this.possibleCollaborators = possibleCollaborators;
-		this.assignment = assignment;
-	}
 
 	public static ArrayList<ArrayList<Object>> makeACollabInvite(Student inviter, ArrayList<Student> possibleCollaborators, Assignment assignment) {
 		//first find all of the time in the inviter's schedule where they have free time, through an
