@@ -117,7 +117,7 @@ public class ClassPanel extends JPanel {
         				newData[i][0] = data.get(i);
         			}
         			//TOTO: add something to do with sending invites to the other users
-        			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
+//        			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
         			
         		}
         	}
@@ -150,9 +150,9 @@ public class ClassPanel extends JPanel {
 		
 	}
 	
-	//adds an assignment to the visible list. must be passed by reference
-	public void addAssignmentToList(Assignment ass)
+	//adds a class to the visible list. must be passed by reference
+	public void addClassToList(Event classes)
 	{
-		data.add(ass);
+		data.add(classes);
 	}
 }
