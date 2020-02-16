@@ -36,7 +36,7 @@ public class CalgaryHacks2020 {
 
         //TODO: build schedule based on UCID
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
-        myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudent.txt");
+        myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
         Schedule studentSchedule = new Schedule();
 
         Student user = new Student(name, null, ucID);
