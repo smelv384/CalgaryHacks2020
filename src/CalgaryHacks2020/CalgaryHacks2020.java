@@ -19,6 +19,7 @@ public class CalgaryHacks2020 {
 
     public static Student user;
     public static ArrayList<Student> allStudents;
+    public static ArrayList<Invite> allInvitations;
 
 	public static StringFrame stringFrame;
 	public static ClassPanel classPanel;
@@ -45,6 +46,27 @@ public class CalgaryHacks2020 {
         allStudents.add(charlie);
         allStudents.add(darren);
         allStudents.add(evan);
+
+        ArrayList<Student> aliceList = new ArrayList<>();
+        aliceList.add(alice);
+        Invite newInvite = new Invite(new int[] {0, 3, 13}, aliceList, new Assignment("Midterm", new int[] {4, 1, 13}, 5, "PSYC205001"));
+        allInvitations.add(newInvite);
+
+        ArrayList<Student> mathList = new ArrayList<>();
+        mathList.add(charlie);
+        mathList.add(bob);
+        newInvite = new Invite(new int[] {1, 4, 16}, mathList, new Assignment("Assignment 1", new int[] {2, 3, 7}, 2, "MATH279001"));
+        allInvitations.add(newInvite);
+
+        ArrayList<Student> darrenList = new ArrayList<>();
+        darrenList.add(darren);
+        newInvite = new Invite(new int[] {1, 2, 8}, darrenList, new Assignment("Quiz 1", new int[] {1, 4, 1}, 1, "PHIL377001"));
+        allInvitations.add(newInvite);
+
+        ArrayList<Student> evanList = new ArrayList<>();
+        evanList.add(evan);
+        newInvite = new Invite(new int[] {2, 4, 8}, evanList, new Assignment("Deliverable 2", new int[] {3, 5, 10}, 3, "SENG300001"));
+        allInvitations.add(newInvite);
 
         String name;
         String ucID;
@@ -87,7 +109,7 @@ public class CalgaryHacks2020 {
 
     }
 
-    public static void viewCollabRequests() {
+    public static void viewCollabRequests(ArrayList<Invite> allInvitations) {
         //show list of collab requests
     }
 
@@ -114,14 +136,14 @@ public class CalgaryHacks2020 {
         CollabInvite collabRequest = new CollabInvite(user, allStudents, asgCollab);
         ArrayList<ArrayList<Object>> studentsToInvite = collabRequest.makeACollabInvite(user, allStudents, asgCollab);
     }
-    
+
     public static void userLookForInvites(ArrayList<ArrayList<Object>> studentsToInvite) {
     	for (ArrayList<Object> invitation : studentsToInvite) {
     		if (invitation.get(0) == user) {
-    			
+
     		}
     	}
-    	
+
     }
 
 }
