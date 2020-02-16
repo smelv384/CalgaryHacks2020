@@ -63,7 +63,7 @@ public class CalgaryHacks2020 {
 
         user = new Student(name, studentSchedule, ucID);
         System.out.println(user.getName());
-        
+
         //start up the GUI
 		classPanel = new ClassPanel();
 		assignmentPanel = new AssignmentPanel();
@@ -104,7 +104,7 @@ public class CalgaryHacks2020 {
 
         Assignment newAssignment = new Assignment();
         if (/*some condition, will be set in the GUI*/) {
-            createCollabRequest();
+            createCollabRequest(newAssignment);
         }
 
     }
