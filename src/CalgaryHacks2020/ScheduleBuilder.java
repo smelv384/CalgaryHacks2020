@@ -11,14 +11,9 @@ import java.util.Scanner;
 public class ScheduleBuilder {
 
 
-    public Schedule read(String fileName) {
-        Scanner in = new Scanner(System.in);
-        try {
-            File inFile = new File(fileName);
-            in = new Scanner(inFile);
-        } catch (FileNotFoundException e) {
-            System.out.println("Exceptional failure");
-        }
+    public Schedule read(String fileName) throws FileNotFoundException {
+        File inFile = new File(fileName);
+        Scanner in = new Scanner(inFile);
 
         Schedule studSchedule = new Schedule();
 
