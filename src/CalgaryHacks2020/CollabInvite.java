@@ -25,7 +25,7 @@ public class CollabInvite {
 		this.assignment = assignment;
 	}
 
-	public ArrayList<ArrayList<Object>> makeACollabInvite(Student inviter, ArrayList<Student> possibleCollaborators, Assignment assignment) {
+	public static ArrayList<ArrayList<Object>> makeACollabInvite(Student inviter, ArrayList<Student> possibleCollaborators, Assignment assignment) {
 		//first find all of the time in the inviter's schedule where they have free time, through an
 		//array list of time slots (stored in the form of 3 integers)
 		Event[][][] inviterSchedule = inviter.getStudentSchedule().getTempSchedule();
