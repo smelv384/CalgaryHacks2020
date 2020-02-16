@@ -6,7 +6,7 @@ public class Assignment {
     //the program can integrate easily with a GUI
 
     private String name;
-    private int[] dateTime;
+    private int[] dateTime; //Since dates and times are stored as 3-dimensional arrays, this is the index of a specific date and time
     private int hours;
     private String className;
 
@@ -21,8 +21,9 @@ public class Assignment {
 		this.name = name;
 	}
 
+	//This receives 3 integers rather than an array because we figured it'd be easier
 	public void setDate(int week, int day, int hour) {
-		date = new int[] { week, day, hour };
+		dateTime = new int[] { week, day, hour };
 	}
 
 	public void setHours(int hours) {
