@@ -1,6 +1,5 @@
 package CalgaryHacks2020;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.Set;
 
 public class CollabInvite {
@@ -49,12 +48,12 @@ public class CollabInvite {
 		return freeTimeSlots;
 	}
 
-	public ArrayList<Invite> createInvite(ArrayList<int[]> freeTimeSlots, Assignment assignment, Student inviter, GregorianCalendar dueDate) {
+	public ArrayList<Invite> createInvite(ArrayList<int[]> freeTimeSlots, Assignment assignment, Student inviter) {
 		ArrayList<Invite> newInvites = new ArrayList<Invite>();
 		ArrayList<Student> students = new ArrayList<Student>();
 		students.add(inviter);
 		for (int[] timeSlot : freeTimeSlots) {
-			Invite newInvite = new Invite(timeSlot, students, assignment, dueDate);
+			Invite newInvite = new Invite(timeSlot, students, assignment);
 			newInvites.add(newInvite);
 		}
 		return newInvites;
