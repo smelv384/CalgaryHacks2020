@@ -12,6 +12,7 @@ public class Schedule {
 	    for (int i = 0; i < 13; i++) {
 	        for (int j = 0; j < 7; j++) {
 	            for (int k = 0; k < 24; k++) {
+	                tempSchedule[i][j][k] = new Event();
 	                tempSchedule[i][j][k].setEventType(0);
 	            }
 	        }
@@ -30,8 +31,12 @@ public class Schedule {
 		return classSet;
 	}
 
-	public void setClassSet(Set<String> newClassSet) {
-		this.classSet = newClassSet;
+	public void setClassSet(Set<String> classSet) {
+		this.classSet = classSet;
+	}
+
+	public void addClass(String className) {
+	    classSet.add(className);
 	}
 
 }
