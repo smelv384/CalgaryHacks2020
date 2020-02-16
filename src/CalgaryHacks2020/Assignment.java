@@ -1,3 +1,9 @@
+/**
+ * This is the class for the in-class assignment/test for the CalgaryHacks2020 hackathon
+ * By the U of C-MRU Coalition for the Purpose of Victory in CalgaryHacks2020
+ * Author: Harry Lee, Shaemus Melvin
+ */
+
 package CalgaryHacks2020;
 
 public class Assignment {
