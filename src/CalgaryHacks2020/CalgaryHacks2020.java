@@ -1,3 +1,8 @@
+/**
+ * Main class for the CalgaryHacks2020 hackathon, by the U of C-MRU Coalition for the Purpose of Victory in CalgaryHacks2020
+ * Author: Shaemus Melvin
+ */
+
 package CalgaryHacks2020;
 import java.util.Scanner;
 
