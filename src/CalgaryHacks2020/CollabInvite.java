@@ -52,8 +52,8 @@ public class CollabInvite {
 	public ArrayList<Invite> createInvite(ArrayList<int[]> freeTimeSlots, Assignment assignment, Student inviter, GregorianCalendar dueDate) {
 		ArrayList<Invite> newInvites = new ArrayList<Invite>();
 		for (int[] timeSlot : freeTimeSlots) {
-			//Invite newInvite = new Invite(timeSlot, inviter, assignment, dueDate);
-			//newInvites.add(newInvite);
+			Invite newInvite = new Invite(timeSlot, inviter, assignment, dueDate);
+			newInvites.add(newInvite);
 		}
 		return newInvites;
 	}

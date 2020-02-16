@@ -66,7 +66,7 @@ public class CalgaryHacks2020 {
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
         Schedule studentSchedule = myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
 
-        Student user = new Student(name, null, ucID);
+        Student user = new Student(name, studentSchedule, ucID);
         System.out.println(user.getName());
 
         while (!exit) {
