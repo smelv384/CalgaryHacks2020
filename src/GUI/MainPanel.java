@@ -1,29 +1,31 @@
 package GUI;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import java.awt.Dimension;
-import javax.swing.JButton;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.Color;
+
 import CalgaryHacks2020.Event;
-import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
-	
+
 	private int currentWeek = 0;//the current week of the schedule we are looking at
 	private Object[][] data;
 
     public MainPanel() {
     	setBackground(Color.LIGHT_GRAY);
-    	
- 
+
+
 
         String[] columnNames = {"Sun","Mon","Tue","Wend","Thurs","Fri","Sat"};
 
@@ -54,9 +56,9 @@ public class MainPanel extends JPanel {
 	    {null, null,null, null, null,null,null},
         };
         setLayout(null);
-        
+
         updateCalander();
-        
+
 
         final JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 100));
@@ -68,11 +70,11 @@ public class MainPanel extends JPanel {
 
         //Add the scroll pane to this panel.
         add(scrollPane);
-        
+
         JLabel weekNumberLb = new JLabel("current week: " + currentWeek);
         weekNumberLb.setBounds(540, 20, 100, 14);
         add(weekNumberLb);
-        
+
         JButton scrollCalanderLeftBt = new JButton("<--");
         scrollCalanderLeftBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -87,7 +89,7 @@ public class MainPanel extends JPanel {
         });
         scrollCalanderLeftBt.setBounds(270, 16, 89, 23);
         add(scrollCalanderLeftBt);
-        
+
         JButton scrollCalanderRightBt = new JButton("-->");
         scrollCalanderRightBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -102,7 +104,7 @@ public class MainPanel extends JPanel {
         });
         scrollCalanderRightBt.setBounds(781, 16, 89, 23);
         add(scrollCalanderRightBt);
-        
+
         JPanel panel = new JPanel();
         panel.setBackground(Color.GRAY);
         panel.setBounds(0, 0, 200, 500);
@@ -113,7 +115,7 @@ public class MainPanel extends JPanel {
         gbl_panel.columnWeights = new double[]{1.0, Double.MIN_VALUE};
         gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         panel.setLayout(gbl_panel);
-        
+
         JButton myClassesBt = new JButton("My Classes");
         GridBagConstraints gbc_myClassesBt = new GridBagConstraints();
         gbc_myClassesBt.insets = new Insets(0, 0, 5, 0);
@@ -127,7 +129,7 @@ public class MainPanel extends JPanel {
         		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.classPanel);
         	}
         });
-        
+
         JButton myGroupsBt = new JButton("My Groups");
         myGroupsBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -135,7 +137,7 @@ public class MainPanel extends JPanel {
         		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
         	}
         });
-        
+
         JButton myAssignmentsBt = new JButton("My Assignments");
         myAssignmentsBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -149,7 +151,7 @@ public class MainPanel extends JPanel {
         gbc_myAssignmentsBt.gridx = 0;
         gbc_myAssignmentsBt.gridy = 1;
         panel.add(myAssignmentsBt, gbc_myAssignmentsBt);
-        
+
         JButton myNotificationsBt = new JButton("My Notifications");
         myNotificationsBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -169,7 +171,7 @@ public class MainPanel extends JPanel {
         gbc_myGroupsBt.gridx = 0;
         gbc_myGroupsBt.gridy = 3;
         panel.add(myGroupsBt, gbc_myGroupsBt);
-        
+
 
     }
 
@@ -182,7 +184,7 @@ public class MainPanel extends JPanel {
         	{
         		if (sched[currentWeek][i][j].getEventType() != "FREETIME")
         		{
-        			data[j][i] = sched[currentWeek][i][j].getEventType();
+        			data[j][i] = sched[currentWeek][i][j].getClassName();
         		}
         	}
         }
