@@ -16,11 +16,16 @@ public class CalgaryHacks2020 {
         System.out.println("Please enter your ucID");
         ucID = kb.next();
 
+        //TODO: build schedule based on UCID
+        Schedule studentSchedule = new Schedule();
+
         Student user = new Student(name, null, ucID);
         System.out.println(user.getName());
 
         while (!exit) {
-
+            System.out.println("What would you like to do?\n"
+                    + "Add collaboration request\n"
+                    + "View collaboration requests\n");
         }
 
         kb.close();
