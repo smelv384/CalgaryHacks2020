@@ -26,10 +26,6 @@ public class Assignment {
 		this.hours = hours;
 	}
 
-	public void setClassName(String className) {
-		this.className = className;
-	}
-
 	public String getName() {
 	    return name;
 	}
