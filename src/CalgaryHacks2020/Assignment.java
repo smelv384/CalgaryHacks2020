@@ -13,6 +13,10 @@ public class Assignment {
     private int hours;
     private String className;
 
+    public Assignment() {
+        //Should figure this out at some point
+    }
+
 	public void setName() {
 		Scanner input = new Scanner(System.in);
 		System.out.print("Enter the name of the assignment: ");
