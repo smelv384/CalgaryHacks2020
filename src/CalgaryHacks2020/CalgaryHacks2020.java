@@ -6,10 +6,15 @@
 package CalgaryHacks2020;
 import java.util.Scanner;
 
+import GUI.StringFrame;
+
 
 public class CalgaryHacks2020 {
 
     public static void main(String[] args) {
+		StringFrame stringFrame = new StringFrame();
+		stringFrame.start();
+		
         String name;
         String ucID;
         boolean exit = false;
