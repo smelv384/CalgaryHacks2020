@@ -17,7 +17,7 @@ import javax.swing.JLabel;
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
 	
-	private int currentWeek = 1;//the current week of the schedule we are looking at
+	private int currentWeek = 0;//the current week of the schedule we are looking at
 	private Object[][] data;
 
     public MainPanel() {
@@ -69,6 +69,10 @@ public class MainPanel extends JPanel {
         //Add the scroll pane to this panel.
         add(scrollPane);
         
+        JLabel weekNumberLb = new JLabel("current week: " + currentWeek);
+        weekNumberLb.setBounds(540, 20, 100, 14);
+        add(weekNumberLb);
+        
         JButton scrollCalanderLeftBt = new JButton("<--");
         scrollCalanderLeftBt.addMouseListener(new MouseAdapter() {
         	@Override
@@ -78,7 +82,7 @@ public class MainPanel extends JPanel {
         			currentWeek--;
         			updateCalander();
         		}
-        		System.out.println(currentWeek);
+        		weekNumberLb.setText("current week: " + currentWeek);
         	}
         });
         scrollCalanderLeftBt.setBounds(270, 16, 89, 23);
@@ -93,7 +97,7 @@ public class MainPanel extends JPanel {
 		        	currentWeek++;
 		        	updateCalander();
 		        }
-        		System.out.println(currentWeek);
+        		weekNumberLb.setText("current week: " + currentWeek);
         	}
         });
         scrollCalanderRightBt.setBounds(781, 16, 89, 23);
@@ -166,9 +170,7 @@ public class MainPanel extends JPanel {
         gbc_myGroupsBt.gridy = 3;
         panel.add(myGroupsBt, gbc_myGroupsBt);
         
-        JLabel weekNumberLb = new JLabel("New label");
-        weekNumberLb.setBounds(569, 20, 46, 14);
-        add(weekNumberLb);
+
     }
 
 	private void updateCalander() {
