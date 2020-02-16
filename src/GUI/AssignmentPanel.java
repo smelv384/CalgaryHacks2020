@@ -11,6 +11,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+@SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
 	private JTextField txtMyAssignments;
 	private JTextField textField;

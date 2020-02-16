@@ -4,8 +4,9 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class AvailablrGroups extends JPanel{
-	public AvailablrGroups() {
+@SuppressWarnings("serial")
+public class GroupsPanel extends JPanel{
+	public GroupsPanel() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		

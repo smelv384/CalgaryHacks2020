@@ -23,5 +23,10 @@ public class StringFrame extends JFrame {
 		this.setSize(900,500);
 		this.setVisible(true);
 	}
+	
+	public void changePanel(JFrame frame)
+	{
+		System.out.println("FUCK");
+	}
 
 }

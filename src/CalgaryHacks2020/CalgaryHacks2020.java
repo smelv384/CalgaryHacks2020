@@ -6,10 +6,18 @@
 package CalgaryHacks2020;
 import java.util.Scanner;
 
+import GUI.*;
 import GUI.StringFrame;
 
 
 public class CalgaryHacks2020 {
+	
+	public static StringFrame stringFrame;
+	public static ClassPanel classPanel;
+	public static AssignmentPanel assignemntPanel;
+	public static MainPanel mainPanel;
+	public static GroupsPanel groupsPanel;
+	
 
     public static void main(String[] args) {
 
@@ -23,7 +31,7 @@ public class CalgaryHacks2020 {
 
 
 
-		StringFrame stringFrame = new StringFrame();
+		stringFrame = new StringFrame();
 		stringFrame.start();
 
         String name;
@@ -70,9 +78,9 @@ public class CalgaryHacks2020 {
 
 
         Assignment newAssignment = new Assignment();
-        if (/*some condition, will be set in the GUI*/) {
-            createCollabRequest();
-        }
+        //if (/*some condition, will be set in the GUI*/) {
+          //  createCollabRequest();
+        //}
 
     }
 
