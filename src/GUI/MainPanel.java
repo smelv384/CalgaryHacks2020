@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -24,6 +25,10 @@ public class MainPanel extends JPanel {
 
     public MainPanel() {
     	setBackground(Color.LIGHT_GRAY);
+    	
+    	String ucid;
+        ucid = JOptionPane.showInputDialog("UCID:",
+         "Please enter your UCID:");
 
 
 

@@ -171,7 +171,6 @@ public class ClassPanel extends JPanel {
 				String name;
 		        name = JOptionPane.showInputDialog("Assignment Name",
 		         "Please enter an Assignment:");
-//		        JOptionPane.showMessageDialog(null,"Hi "+ name);
 			}
         });
 	}
