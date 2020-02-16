@@ -33,7 +33,6 @@ public class CalgaryHacks2020 {
 
 
     public static void main(String[] args) {
-    	System.out.println("Hello world!");
 
         //creating dummy students to interact with the user
         Student alice = new Student("alice", new Schedule(), "30");
@@ -79,8 +78,8 @@ public class CalgaryHacks2020 {
         newInvite = new Invite(new int[] {2, 4, 8}, evanList, new Assignment("Deliverable 2", new int[] {3, 5, 10}, 3, "SENG300001"));
         userInvitations.add(newInvite);
 
-        String name = "SGA";
-        String ucID = "531";
+        String name = "Shaemus Melvin";
+        String ucID = "301785037";
 
         Scanner kb = new Scanner(System.in);
 
@@ -95,7 +94,6 @@ public class CalgaryHacks2020 {
         }
 
         user = new Student(name, studentSchedule, ucID);
-        System.out.println(user.getName());
 
         //start up the GUI
 		classPanel = new ClassPanel();

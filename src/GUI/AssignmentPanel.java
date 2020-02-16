@@ -10,16 +10,19 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import CalgaryHacks2020.Assignment;
+import CalgaryHacks2020.Invite;
+import CalgaryHacks2020.Student;
 
 @SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
-	private ArrayList<String> data = new ArrayList<String>();
+	private ArrayList<Assignment> data = new ArrayList<Assignment>();
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -112,7 +115,7 @@ public class AssignmentPanel extends JPanel {
 
         			for (int i = 0; i < data.size();i++)
         			{
-        				temp[i][0] = data.get(i);
+        				temp[i][0] = data.get(i).toString();
         			}
         			//TOTO: add something to do with sending invites to the other users
         			 //ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
@@ -141,12 +144,31 @@ public class AssignmentPanel extends JPanel {
         panel_1.add(btnNewButton_4);
 
 
+        btnNewButton_4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.assignmentPanel);
+                JPanel myPanel = new JPanel();
 
+
+                String choice = (String) JOptionPane.showInputDialog(null, "Please choose assignment",
+                 "Collaboration request", JOptionPane.QUESTION_MESSAGE, null, temp[0], temp[0][0]);
+                Student user = CalgaryHacks2020.CalgaryHacks2020.user;
+                ArrayList<Student> collabStudents = new ArrayList<>();
+                collabStudents.add(user);
+                //String className = (String) JOptionPane.showInputDialog(null, "Please choose your class", "Class Name", JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
+                Invite newInvite = new Invite(new int[] {1, 1, 1}, collabStudents, new Assignment(choice, new int[] {1, 1, 1}, 1, ""));
+
+
+                CalgaryHacks2020.CalgaryHacks2020.notificationPanel.addInviteToList(newInvite);
+
+            }
+        });
 	}
 
 	//adds an assignment to the visible list. must be passed by reference
 	public void addAssignmentToList(Assignment ass)
 	{
-		data.add(ass.toString());
+		data.add(ass);
 	}
 }
