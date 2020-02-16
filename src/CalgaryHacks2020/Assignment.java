@@ -51,4 +51,9 @@ public class Assignment {
 	public String getClassName() {
 	    return this.className;
 	}
+
+	@Override
+    public String toString() {
+	    return name;
+	}
 }
