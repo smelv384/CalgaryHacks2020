@@ -24,7 +24,8 @@ public class ScheduleBuilder {
 
         while (in.hasNext()) {
             String allInfo = in.nextLine();
-            String[] classParts = allInfo.split(" ");
+            String[] classParts = allInfo.split(" ", -1);
+            System.out.println(classParts[0]);
             String className = classParts[0];
             studSchedule.addClass(className);
 
