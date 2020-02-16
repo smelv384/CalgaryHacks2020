@@ -44,16 +44,22 @@ public class ScheduleBuilder {
             }
 
             String startTime = classParts[2];
-            int startInd = ( ( Integer.parseInt(startTime.split(":")[0]) + 8 ) % 24 ) +
+            System.out.println(classParts[0] + classParts[2]);
+            System.out.println(( (( Integer.parseInt(startTime.split(":")[0]) + 16 ) ) % 12 ) * 2  );
+            //System.out.println(startTime.split(":")[1]);
+            int startInd = ( ( ( Integer.parseInt(startTime.split(":")[0]) + 16 ) % 12 ) * 2 ) +
+
                     ( ( Integer.parseInt(startTime.split(":")[1]) / 10 ) / 30);
 
+
             String endTime = classParts[3];
-            int endInd = ( ( Integer.parseInt(endTime.split(":")[0]) + 8 ) % 24 ) +
+            int endInd = ( ( ( Integer.parseInt(endTime.split(":")[0]) + 16 ) % 12 ) * 2 ) +
                     ( ( Integer.parseInt(endTime.split(":")[1]) / 10 ) / 30);
 
             for (int i = 0; i < 13; i++) {
                 for (int j = startInd; j <= endInd; j++) {
                     studSchedule.getTempSchedule()[i][dayIndex][j].setEventType(1);
+                    studSchedule.getTempSchedule()[i][dayIndex][j].setClassName(className);
                 }
             }
 
