@@ -12,6 +12,7 @@ public class Schedule {
 	    for (int i = 0; i < 13; i++) {
 	        for (int j = 0; j < 7; j++) {
 	            for (int k = 0; k < 24; k++) {
+	                tempSchedule[i][j][k] = new Event();
 	                tempSchedule[i][j][k].setEventType(0);
 	            }
 	        }
