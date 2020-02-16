@@ -10,6 +10,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,13 +20,16 @@ import CalgaryHacks2020.Event;
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
 
+
+
 	private int currentWeek = 0;//the current week of the schedule we are looking at
 	private Object[][] data;
 
     public MainPanel() {
     	setBackground(Color.LIGHT_GRAY);
 
-
+    	String ucID;
+        ucID = JOptionPane.showInputDialog("UCID:", "Please enter your UCID");
 
         String[] columnNames = {"Sun","Mon","Tue","Wend","Thurs","Fri","Sat"};
 
