@@ -35,6 +35,11 @@ public class CalgaryHacks2020 {
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
         ArrayList<Student> allStudents = new ArrayList<>();
+        allStudents.add(alice);
+        allStudents.add(bob);
+        allStudents.add(charlie);
+        allStudents.add(darren);
+        allStudents.add(evan);
 
 		StringFrame stringFrame = new StringFrame();
 
