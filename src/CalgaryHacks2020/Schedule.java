@@ -30,8 +30,12 @@ public class Schedule {
 		return classSet;
 	}
 
-	public void setClassSet(Set<String> newClassSet) {
-		this.classSet = newClassSet;
+	public void setClassSet(Set<String> classSet) {
+		this.classSet = classSet;
+	}
+
+	public void addClass(String className) {
+	    classSet.add(className);
 	}
 
 }
