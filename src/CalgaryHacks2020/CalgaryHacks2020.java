@@ -4,12 +4,25 @@
  */
 
 package CalgaryHacks2020;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import GUI.AssignmentPanel;
+import GUI.ClassPanel;
+import GUI.GroupsPanel;
+import GUI.MainPanel;
 import GUI.StringFrame;
 
 
 public class CalgaryHacks2020 {
+
+	public static StringFrame stringFrame;
+	public static ClassPanel classPanel;
+	public static AssignmentPanel assignmentPanel;
+	public static MainPanel mainPanel;
+	public static GroupsPanel groupsPanel;
+	//public static NotificationPanel notificationPanel;
+
 
     public static void main(String[] args) {
 
@@ -21,9 +34,16 @@ public class CalgaryHacks2020 {
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
-        ArrayList<Student> allStudents =
+        ArrayList<Student> allStudents = new ArrayList<>();
 
 		StringFrame stringFrame = new StringFrame();
+
+		classPanel = new ClassPanel();
+		assignmentPanel = new AssignmentPanel();
+		groupsPanel = new GroupsPanel();
+		mainPanel = new MainPanel();
+		stringFrame = new StringFrame();
+		//notificationPanel = new NotificationPanel();
 		stringFrame.start();
 
         String name;

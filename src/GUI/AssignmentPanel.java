@@ -10,7 +10,10 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
+@SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
 	private JTextField txtMyAssignments;
 	private JTextField textField;
@@ -32,17 +35,43 @@ public class AssignmentPanel extends JPanel {
 		panel.setBounds(0, 0, 120, 300);
 		add(panel);
 		
-		JButton btnNewButton = new JButton("My Classmates");
-		panel.add(btnNewButton);
+		JButton myClassesBt = new JButton("My Classes");
+		myClassesBt.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.classPanel);
+			}
+		});
+		panel.add(myClassesBt);
 		
 		JButton btnNewButton_1 = new JButton("My Assignments");
+		btnNewButton_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.mainPanel);
+			}
+		});
+		btnNewButton_1.setForeground(Color.DARK_GRAY);
+		btnNewButton_1.setBackground(Color.GRAY);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Notifications");
+		btnNewButton_2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.notificationPanel);
+			}
+		});
 		panel.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("My Study Groups");
-		panel.add(btnNewButton_3);
+		JButton myGroupsButton = new JButton("My Groups");
+		myGroupsButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
+			}
+		});
+		panel.add(myGroupsButton);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.GRAY);

@@ -9,13 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
  
-public class classPanel extends JPanel {
+public class ClassPanel extends JPanel {
 	
 	private JLabel classes;
 	private JList<String> classList = new JList<String>();
 	private JButton inputAssignment;
 	
-	public classPanel() {
+	public ClassPanel() {
 		classes = new JLabel("My Classes");
 		classes.setBounds(100, 10, 65, 16);
 		classes.setHorizontalAlignment(SwingConstants.CENTER);
