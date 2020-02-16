@@ -106,15 +106,7 @@ public class CalgaryHacks2020 {
 		stringFrame = new StringFrame();
 		stringFrame.start();
 
-        while (!exit) {
-            System.out.println("What would you like to do?\n"
-                    + "View collaboration requests\n"
-                    + "View schedule\n"
-                    + "Exit");
-            if (kb.next().equals("Exit")) {
-                exit = true;
-            }
-        }
+
 
         kb.close();
 
@@ -151,7 +143,7 @@ public class CalgaryHacks2020 {
         Assignment newAssignment = new Assignment(name, dateTime, hours,
                 user.getStudentSchedule().getTempSchedule()[dateTime[0]][dateTime[1]][dateTime[2]].getClassName());
 
-        if (/*some condition, will be set in the GUI*/) {
+        if (true) {
             createCollabRequest(newAssignment);
         }
 
