@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- *
+ * Made by the U of C-MRU Coalition for the Purpose of Victory in CalgaryHacks2020
  * @author samuel osweiler, Shaemus Melvin
  *
  */
