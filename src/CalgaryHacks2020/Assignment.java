@@ -6,12 +6,15 @@ public class Assignment {
     //the program can integrate easily with a GUI
 
     private String name;
-    private int[] date;
+    private int[] dateTime;
     private int hours;
     private String className;
 
-    public Assignment() {
-        //Should figure this out at some point
+    public Assignment(String name, int[] dateTime, int hours, String className) {
+        this.className = name;
+        this.dateTime = dateTime;
+        this.hours = hours;
+        this.className = className;
     }
 
 	public void setName(String name) {
