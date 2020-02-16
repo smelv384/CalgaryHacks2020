@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
  
+@SuppressWarnings("serial")
 public class ClassPanel extends JPanel {
 	
 	private JLabel classes;

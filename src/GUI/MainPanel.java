@@ -12,11 +12,13 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Color;
 import CalgaryHacks2020.Event;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class MainPanel extends JPanel {
 	
-	private int currentWeek;//the current week of the schedule we are looking at
+	private int currentWeek = 1;//the current week of the schedule we are looking at
+	private Object[][] data;
 
     public MainPanel() {
     	setBackground(Color.LIGHT_GRAY);
@@ -25,7 +27,7 @@ public class MainPanel extends JPanel {
 
         String[] columnNames = {"Sun","Mon","Tue","Wend","Thurs","Fri","Sat"};
 
-        Object[][] data = {
+        data = new Object[][] {
 	    {null, null,null, null, null,null,null},
 	    {null, null,null, null, null,null,null},
 	    {null, null,null, null, null,null,null},
@@ -53,18 +55,7 @@ public class MainPanel extends JPanel {
         };
         setLayout(null);
         
-        //update the data with times when the schedule has an event
-        Event[][][] sched = CalgaryHacks2020.CalgaryHacks2020.user.getStudentSchedule().getTempSchedule();
-        for (int i = 0; i < 7; i++)//for each day
-        {
-        	for (int j = 0; j < 24;j++)//for each hour in that day
-        	{
-        		if (sched[currentWeek][i][j].getEventType() != "FREETIME")
-        		{
-        			data[j][i] = sched[currentWeek][i][j].getEventType();
-        		}
-        	}
-        }
+        updateCalander();
         
 
         final JTable table = new JTable(data, columnNames);
@@ -79,10 +70,32 @@ public class MainPanel extends JPanel {
         add(scrollPane);
         
         JButton scrollCalanderLeftBt = new JButton("<--");
+        scrollCalanderLeftBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent arg0) {
+        		if (currentWeek > 0)
+        		{
+        			currentWeek--;
+        			updateCalander();
+        		}
+        		System.out.println(currentWeek);
+        	}
+        });
         scrollCalanderLeftBt.setBounds(270, 16, 89, 23);
         add(scrollCalanderLeftBt);
         
         JButton scrollCalanderRightBt = new JButton("-->");
+        scrollCalanderRightBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		if (currentWeek < 12)
+		        {
+		        	currentWeek++;
+		        	updateCalander();
+		        }
+        		System.out.println(currentWeek);
+        	}
+        });
         scrollCalanderRightBt.setBounds(781, 16, 89, 23);
         add(scrollCalanderRightBt);
         
@@ -152,5 +165,24 @@ public class MainPanel extends JPanel {
         gbc_myGroupsBt.gridx = 0;
         gbc_myGroupsBt.gridy = 3;
         panel.add(myGroupsBt, gbc_myGroupsBt);
+        
+        JLabel weekNumberLb = new JLabel("New label");
+        weekNumberLb.setBounds(569, 20, 46, 14);
+        add(weekNumberLb);
     }
+
+	private void updateCalander() {
+		//update the data with times when the schedule has an event
+        Event[][][] sched = CalgaryHacks2020.CalgaryHacks2020.user.getStudentSchedule().getTempSchedule();
+        for (int i = 0; i < 7; i++)//for each day
+        {
+        	for (int j = 0; j < 24;j++)//for each hour in that day
+        	{
+        		if (sched[currentWeek][i][j].getEventType() != "FREETIME")
+        		{
+        			data[j][i] = sched[currentWeek][i][j].getEventType();
+        		}
+        	}
+        }
+	}
 }
