@@ -2,6 +2,7 @@ package GUI;
 
 import javax.swing.JFrame;
 
+@SuppressWarnings("serial")
 public class StringFrame extends JFrame {
 	
 	private classPanel currentPanel;

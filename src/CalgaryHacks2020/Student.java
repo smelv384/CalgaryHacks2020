@@ -6,17 +6,13 @@ package CalgaryHacks2020;
 
 public class Student {
 
-    public enum Major {
-        COMPUTERSCIENCE, MECHENG, GENDERSTUDIES, ACCOUNTING
-    }
 	private String name;
 	private Schedule studentSchedule;
 	private final String ucID;
 
 
 
-	public Student(String name, Schedule studentSchedule, String ucID)
-	{
+	public Student(String name, Schedule studentSchedule, String ucID) {
 		this.name = name;
 		this.studentSchedule = studentSchedule;
 		this.ucID = ucID;

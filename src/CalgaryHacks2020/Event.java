@@ -31,4 +31,16 @@ public class Event {
         }
     }
 
+    public String getEventType() {
+        return eventType.toString();
+    }
+
+    public Assignment getOptionalAssignment() {
+        return optionalAssignment;
+    }
+
+    public void setOptionalAssignment(Assignment optionalAssignment) {
+        this.optionalAssignment = optionalAssignment;
+    }
+
 }
