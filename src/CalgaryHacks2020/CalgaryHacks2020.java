@@ -12,9 +12,17 @@ import GUI.StringFrame;
 public class CalgaryHacks2020 {
 
     public static void main(String[] args) {
+        StudentReader reader = new StudentReader();
+        Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
+        Student bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
+        Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
+        Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
+        Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
+
+
 		StringFrame stringFrame = new StringFrame();
 		stringFrame.start();
-		
+
         String name;
         String ucID;
         boolean exit = false;
@@ -27,6 +35,8 @@ public class CalgaryHacks2020 {
         ucID = kb.next();
 
         //TODO: build schedule based on UCID
+        ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
+        myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudent.txt");
         Schedule studentSchedule = new Schedule();
 
         Student user = new Student(name, null, ucID);
@@ -34,9 +44,12 @@ public class CalgaryHacks2020 {
 
         while (!exit) {
             System.out.println("What would you like to do?\n"
-                    + "Add collaboration request\n"
                     + "View collaboration requests\n"
-                    + "View schedule\n");
+                    + "View schedule\n"
+                    + "Exit");
+            if (kb.next().equals("Exit")) {
+                exit = true;
+            }
         }
 
         kb.close();
