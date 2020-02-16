@@ -16,6 +16,9 @@ import GUI.StringFrame;
 
 public class CalgaryHacks2020 {
 
+    public static Student user;
+    public static ArrayList<Student> allStudents;
+
 	public static StringFrame stringFrame;
 	public static ClassPanel classPanel;
 	public static AssignmentPanel assignmentPanel;
@@ -34,7 +37,7 @@ public class CalgaryHacks2020 {
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
-        ArrayList<Student> allStudents = new ArrayList<>();
+        allStudents = new ArrayList<>();
         allStudents.add(alice);
         allStudents.add(bob);
         allStudents.add(charlie);
@@ -66,7 +69,7 @@ public class CalgaryHacks2020 {
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
         Schedule studentSchedule = myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
 
-        Student user = new Student(name, studentSchedule, ucID);
+        user = new Student(name, studentSchedule, ucID);
         System.out.println(user.getName());
 
         while (!exit) {
@@ -105,7 +108,11 @@ public class CalgaryHacks2020 {
 
     }
 
-    public static void createCollabRequest() {
+    public static void createCollabRequest(Assignment asgCollab) {
+        CollabInvite collabRequest = new CollabInvite(user, allStudents, asgCollab, user.getStudentSchedule(),
+                asgCollab.getClassName());
+
+
 
     }
 
