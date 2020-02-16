@@ -184,7 +184,14 @@ public class MainPanel extends JPanel {
         	{
         		if (sched[currentWeek][i][j].getEventType() != "FREETIME")
         		{
-        			data[j][i] = sched[currentWeek][i][j].getClassName();
+          			if (sched[currentWeek][i][j].getEventType() == "CLASS")
+        			{
+        				data[j][i] = sched[currentWeek][i][j].getClassName().substring(0, 7);
+        			}
+        			else
+        			{
+        			data[j][i] = sched[currentWeek][i][j].getEventType();
+        			}
         		}
         	}
         }
