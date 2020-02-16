@@ -1,11 +1,12 @@
 package CalgaryHacks2020;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Schedule {
 
 	private Event[][][] tempSchedule = new Event[13][7][24];
-	private Set<String> classSet;
+	private HashSet<String> classSet;
 
 	//Constructor sets all events to free time by default, can be reset later
 	public Schedule() {
@@ -31,7 +32,7 @@ public class Schedule {
 		return classSet;
 	}
 
-	public void setClassSet(Set<String> classSet) {
+	public void setClassSet(HashSet<String> classSet) {
 		this.classSet = classSet;
 	}
 
