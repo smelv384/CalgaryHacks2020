@@ -16,11 +16,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 import CalgaryHacks2020.Assignment;
-import CalgaryHacks2020.CollabInvite;
 
 @SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
-	private ArrayList<Assignment> data = new ArrayList<Assignment>();
+	private ArrayList<String> data = new ArrayList<String>();
 	private JTextField textField;
 	private JTextField textField_1;
 
@@ -102,7 +101,7 @@ public class AssignmentPanel extends JPanel {
 
         setLayout(null);
 
-        Assignment[][] temp = new Assignment[26][1];
+        String[][] temp = new String[26][1];
         final JTable table = new JTable(temp, columnNames);
         table.addMouseListener(new MouseAdapter() {
         	@Override
@@ -110,13 +109,13 @@ public class AssignmentPanel extends JPanel {
         		if (table.getSelectedRow() != -1)
         		{
         			//convert the arraylist into a array the table can use
-        			Assignment[][] newData = new Assignment[data.size()][1];
+
         			for (int i = 0; i < data.size();i++)
         			{
-        				newData[i][0] = data.get(i);
+        				temp[i][0] = data.get(i);
         			}
         			//TOTO: add something to do with sending invites to the other users
-        			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
+        			 //ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
 
         		}
         	}
@@ -148,6 +147,6 @@ public class AssignmentPanel extends JPanel {
 	//adds an assignment to the visible list. must be passed by reference
 	public void addAssignmentToList(Assignment ass)
 	{
-		data.add(ass);
+		data.add(ass.toString());
 	}
 }
