@@ -103,8 +103,15 @@ public class CalgaryHacks2020 {
 		groupsPanel = new GroupsPanel();
 		mainPanel = new MainPanel();
 		notificationPanel = new NotificationPanel();
-		stringFrame = new StringFrame();
+
+
+		for (String className : user.getStudentSchedule().getClassSet()) {
+            classPanel.addClassToList(className);
+        }
+
+	    stringFrame = new StringFrame();
 		stringFrame.start();
+
 
 
 
@@ -146,7 +153,7 @@ public class CalgaryHacks2020 {
 
         Assignment newAssignment = new Assignment(name, dateTime, hours,
                 user.getStudentSchedule().getTempSchedule()[dateTime[0]][dateTime[1]][dateTime[2]].getClassName());
-
+        assignmentPanel.addAssignmentToList(newAssignment);
         boolean collabRequest = false;
 
         if (collabRequest) {
