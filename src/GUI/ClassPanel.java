@@ -166,10 +166,11 @@ public class ClassPanel extends JPanel {
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.classPanel);
 				JPanel myPanel = new JPanel();
 				String name;
-				String[] classes = new String[] {"MATH279001", "PSYC205001", "PHIL377001", "SENG300001" };
+				String[] classes = new String[] {"MATH279001", "PSYC205001", "PHIL377001", "SENG300001", "MATH279401", "PHIL377401" };
+				String className = (String) JOptionPane.showInputDialog(null, "Please choose your class", "Class Name", JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
 		        name = JOptionPane.showInputDialog("Assignment Name",
 		         "Please enter an Assignment:");
-		        String className = (String) JOptionPane.showInputDialog(null, "Please choose your class", "Class Name", JOptionPane.QUESTION_MESSAGE, null, classes, classes[0]);
+
 
 		        Assignment newAsg = new Assignment(name, new int[] {0, 1, 3}, 3, className);
 		        CalgaryHacks2020.CalgaryHacks2020.assignmentPanel.addAssignmentToList(newAsg);
