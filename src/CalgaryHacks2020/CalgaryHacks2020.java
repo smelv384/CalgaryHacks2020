@@ -141,7 +141,6 @@ public class CalgaryHacks2020 {
     	int j = timeSlotToAdd[1];
     	int k = timeSlotToAdd[2];
     	userSchedule[i][j][k].setEventType(2);
-
     }
 
     public static void addAssignment(String name, int[] dateTime, int hours) {
