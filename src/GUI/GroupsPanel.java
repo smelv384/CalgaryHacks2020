@@ -1,20 +1,21 @@
 package GUI;
 
-import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class GroupsPanel extends JPanel{
 	public GroupsPanel() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(0, 0, 200, 500);
@@ -25,7 +26,7 @@ public class GroupsPanel extends JPanel{
 		gbl_panel.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
-		
+
 		JButton btnNewButton = new JButton("My Classes");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -39,7 +40,7 @@ public class GroupsPanel extends JPanel{
 		gbc_btnNewButton.gridx = 0;
 		gbc_btnNewButton.gridy = 0;
 		panel.add(btnNewButton, gbc_btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("My Assignments");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -53,7 +54,7 @@ public class GroupsPanel extends JPanel{
 		gbc_btnNewButton_1.gridx = 0;
 		gbc_btnNewButton_1.gridy = 1;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
-		
+
 		JButton btnNewButton_2 = new JButton("My Notifications");
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
@@ -67,7 +68,8 @@ public class GroupsPanel extends JPanel{
 		gbc_btnNewButton_2.gridx = 0;
 		gbc_btnNewButton_2.gridy = 2;
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
-		
+
+		/*
 		JButton btnNewButton_3 = new JButton("My Groups");
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
@@ -75,6 +77,7 @@ public class GroupsPanel extends JPanel{
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.mainPanel);
 			}
 		});
+
 		btnNewButton_3.setForeground(Color.LIGHT_GRAY);
 		btnNewButton_3.setBackground(Color.DARK_GRAY);
 		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
@@ -83,7 +86,7 @@ public class GroupsPanel extends JPanel{
 		gbc_btnNewButton_3.gridx = 0;
 		gbc_btnNewButton_3.gridy = 3;
 		panel.add(btnNewButton_3, gbc_btnNewButton_3);
-		
+        */
 	}
 
 }

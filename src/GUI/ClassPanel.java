@@ -92,19 +92,23 @@ public class ClassPanel extends JPanel {
 		gbc_btnNewButton_2.gridy = 2;
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
 
+
 		JButton myGroupsButton = new JButton("My Groups");
+		myGroupsButton.setVisible(false);
 		myGroupsButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
 			}
 		});
+
 		GridBagConstraints gbc_myGroupsButton = new GridBagConstraints();
 		gbc_myGroupsButton.fill = GridBagConstraints.BOTH;
 		gbc_myGroupsButton.insets = new Insets(0, 0, 5, 0);
 		gbc_myGroupsButton.gridx = 0;
 		gbc_myGroupsButton.gridy = 3;
 		panel.add(myGroupsButton, gbc_myGroupsButton);
+
 
 
         String[] columnNames = {"My Classes"};

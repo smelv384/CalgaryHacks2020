@@ -81,6 +81,7 @@ public class NotificationPanel extends JPanel {
 		});
 
 		JButton myGroupsBt = new JButton("My Groups");
+		myGroupsBt.setVisible(false);
 		GridBagConstraints gbc_myGroupsBt = new GridBagConstraints();
 		gbc_myGroupsBt.fill = GridBagConstraints.BOTH;
 		gbc_myGroupsBt.insets = new Insets(0, 0, 5, 0);
@@ -92,6 +93,7 @@ public class NotificationPanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
 			}
+
 		});
 
 
@@ -179,12 +181,13 @@ public class NotificationPanel extends JPanel {
         			temporary[count][0] = i;
         			count ++;
         		}
-        		data = temporary;
+        		//data = temporary;
         	}
         });
         refreshBt.setBounds(472, 99, 149, 62);
         add(refreshBt);
         */
+
 	}
 
 	public void addInviteToList(Invite invitation) {
