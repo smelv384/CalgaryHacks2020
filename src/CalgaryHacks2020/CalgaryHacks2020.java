@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import CalgaryHacks2020.Event.EventType;
 import GUI.AssignmentPanel;
 import GUI.ClassPanel;
 import GUI.GroupsPanel;
@@ -134,7 +135,12 @@ public class CalgaryHacks2020 {
     	int hours = acceptedInvite.getAssignment().getHours();
     	addAssignment(name, dateTime, hours);
     	//add invite timeSlot to schedule
-
+    	int[] timeSlotToAdd = acceptedInvite.timeSlot;
+    	Event[][][] userSchedule = user.getStudentSchedule().getTempSchedule();
+    	int i = timeSlotToAdd[0];
+    	int j = timeSlotToAdd[1];
+    	int k = timeSlotToAdd[2];
+    	userSchedule[i][j][k].setEventType(2);
 
     }
 
@@ -143,14 +149,15 @@ public class CalgaryHacks2020 {
         Assignment newAssignment = new Assignment(name, dateTime, hours,
                 user.getStudentSchedule().getTempSchedule()[dateTime[0]][dateTime[1]][dateTime[2]].getClassName());
 
-        if (true) {
-            createCollabRequest(newAssignment);
-        }
+      //  if (true) {
+       //     createCollabRequest(newAssignment);
+      //  }
 
     }
 
-    public static void createCollabRequest(Assignment asgCollab) {
+    public static ArrayList<ArrayList<Object>> createCollabRequest(Assignment asgCollab) {
         ArrayList<ArrayList<Object>> studentsToInvite = CollabInvite.makeACollabInvite(user, allStudents, asgCollab);
+        return studentsToInvite;
     }
 
 }
