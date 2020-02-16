@@ -11,6 +11,7 @@ import GUI.AssignmentPanel;
 import GUI.ClassPanel;
 import GUI.GroupsPanel;
 import GUI.MainPanel;
+import GUI.NotificationPanel;
 import GUI.StringFrame;
 
 
@@ -24,7 +25,8 @@ public class CalgaryHacks2020 {
 	public static AssignmentPanel assignmentPanel;
 	public static MainPanel mainPanel;
 	public static GroupsPanel groupsPanel;
-	//public static NotificationPanel notificationPanel;
+	public static NotificationPanel notificationPanel;
+	public static Student user;
 
 
     public static void main(String[] args) {
@@ -44,16 +46,6 @@ public class CalgaryHacks2020 {
         allStudents.add(darren);
         allStudents.add(evan);
 
-		StringFrame stringFrame = new StringFrame();
-
-		classPanel = new ClassPanel();
-		assignmentPanel = new AssignmentPanel();
-		groupsPanel = new GroupsPanel();
-		mainPanel = new MainPanel();
-		stringFrame = new StringFrame();
-		//notificationPanel = new NotificationPanel();
-		stringFrame.start();
-
         String name;
         String ucID;
         boolean exit = false;
@@ -71,6 +63,15 @@ public class CalgaryHacks2020 {
 
         user = new Student(name, studentSchedule, ucID);
         System.out.println(user.getName());
+        
+        //start up the GUI
+		classPanel = new ClassPanel();
+		assignmentPanel = new AssignmentPanel();
+		groupsPanel = new GroupsPanel();
+		mainPanel = new MainPanel();
+		notificationPanel = new NotificationPanel();
+		stringFrame = new StringFrame();
+		stringFrame.start();
 
         while (!exit) {
             System.out.println("What would you like to do?\n"

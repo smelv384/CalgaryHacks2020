@@ -13,7 +13,6 @@ public class StringFrame extends JFrame {
 
 	public StringFrame()
 	{
-		currentPanel = new classPanel();
 		currentPanel  = CalgaryHacks2020.CalgaryHacks2020.mainPanel;
 
 		setupFrame();
