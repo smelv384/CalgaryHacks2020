@@ -26,7 +26,7 @@ public class CalgaryHacks2020 {
 	public static MainPanel mainPanel;
 	public static GroupsPanel groupsPanel;
 	public static NotificationPanel notificationPanel;
-	public static Student user;
+
 
 
     public static void main(String[] args) {
