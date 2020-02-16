@@ -99,10 +99,11 @@ public class CalgaryHacks2020 {
         }
     }
 
-    public static void addAssignment(Event dateTime) {
+    public static void addAssignment(String name, int[] dateTime, int hours) {
 
+        Assignment newAssignment = new Assignment(name, dateTime, hours,
+                user.getStudentSchedule().getTempSchedule()[dateTime[0]][dateTime[1]][dateTime[2]].getClassName());
 
-        Assignment newAssignment = new Assignment();
         if (/*some condition, will be set in the GUI*/) {
             createCollabRequest(newAssignment);
         }
