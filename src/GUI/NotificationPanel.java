@@ -1,6 +1,9 @@
 package GUI;
 
+import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -8,9 +11,16 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.ListSelectionModel;
+
+import CalgaryHacks2020.Invite;
 
 @SuppressWarnings("serial")
 public class NotificationPanel extends JPanel {
+	
+	Invite[][] data;
+	
 	public NotificationPanel() {
 		setLayout(null);
 		
@@ -82,6 +92,77 @@ public class NotificationPanel extends JPanel {
 				CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
 			}
 		});
-	}
+		
 
+        String[] columnNames = {"Group Invitations"};
+
+        data = new Invite[][] {
+        	
+        };
+        setLayout(null);
+
+        
+
+        final JTable table = new JTable(data, columnNames);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        table.setPreferredScrollableViewportSize(new Dimension(500, 100));
+        table.setFillsViewportHeight(true);
+
+        JButton btnNewButton = new JButton("Accept Invitation");
+        btnNewButton.setEnabled(false);
+        
+        //Create the scroll pane and add the table to it.
+        JScrollPane scrollPane = new JScrollPane(table);
+        table.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mousePressed(MouseEvent e) {
+        		//toggle if the accept invitation button is enabled or not
+        		if (table.getSelectedRow() != -1)
+        		{
+        			btnNewButton.setEnabled(true);
+        		}
+        		else
+        		{
+        			btnNewButton.setEnabled(false);
+        		}
+        	}
+        });
+        scrollPane.setBounds(240, 26, 222, 450);
+        
+
+        //Add the scroll pane to this panel.
+        add(scrollPane);
+        
+        //if the accept button is clicked call the accept collab request function
+        btnNewButton.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		if (table.getSelectedRow() != -1)//if there is something selected
+        		{
+        			CalgaryHacks2020.CalgaryHacks2020.acceptCollabRequest(CalgaryHacks2020.CalgaryHacks2020.userInvitations, table.getSelectedRow());
+        		}
+        	}
+        });
+        btnNewButton.setForeground(new Color(0, 0, 0));
+        btnNewButton.setBackground(new Color(173, 255, 47));
+        btnNewButton.setBounds(472, 26, 149, 62);
+        add(btnNewButton);
+        
+        JButton refreshBt = new JButton("Refresh");
+        refreshBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		Invite[][] temp = new Invite[CalgaryHacks2020.CalgaryHacks2020.userInvitations.size()][1];
+        		int count = 0;
+        		for (Invite i : CalgaryHacks2020.CalgaryHacks2020.userInvitations)
+        		{
+        			temp[count][0] = i;
+        			count ++;
+        		}
+        		data = temp;
+        	}
+        });
+        refreshBt.setBounds(472, 99, 149, 62);
+        add(refreshBt);
+	}
 }
