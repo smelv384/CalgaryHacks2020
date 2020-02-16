@@ -25,7 +25,7 @@ public class CalgaryHacks2020 {
 
 
     public static void main(String[] args) {
-
+    	System.out.println("Hello world!");
         StudentReader reader = new StudentReader();
         //creating dummy students to interact with the user
         Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
