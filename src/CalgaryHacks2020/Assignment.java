@@ -34,7 +34,7 @@ public class Assignment {
 	}
 
 	public int[] getDate() {
-	    return date;
+	    return dateTime;
 	}
 
 	public int getHours() {
