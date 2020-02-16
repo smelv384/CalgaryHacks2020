@@ -39,7 +39,7 @@ public class CalgaryHacks2020 {
         Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
-
+        allInvitations = new ArrayList<>();
         allStudents = new ArrayList<>();
         allStudents.add(alice);
         allStudents.add(bob);
@@ -114,6 +114,11 @@ public class CalgaryHacks2020 {
     		}
     	}
     	return userInvitations;
+    }
+    
+    public static void acceptCollabRequest(ArrayList<Invite> userInvitations) {
+    	
+    	
     }
 
     public static void viewSchedule() {

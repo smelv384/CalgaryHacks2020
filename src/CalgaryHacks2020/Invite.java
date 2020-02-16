@@ -20,7 +20,7 @@ public class Invite {
 		this.assignment = assignment;
 	}
 
-	public void addStudent(ArrayList<Student> students, Student studentToAdd) {
+	public static void addStudent(ArrayList<Student> students, Student studentToAdd) {
 		students.add(studentToAdd);
 	}
 
