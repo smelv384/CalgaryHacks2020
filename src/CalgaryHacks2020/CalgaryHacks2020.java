@@ -21,7 +21,6 @@ public class CalgaryHacks2020 {
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
 
-
 		StringFrame stringFrame = new StringFrame();
 		stringFrame.start();
 
@@ -38,8 +37,7 @@ public class CalgaryHacks2020 {
 
 
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
-        myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
-        Schedule studentSchedule = new Schedule();
+        Schedule studentSchedule = myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
 
         Student user = new Student(name, null, ucID);
         System.out.println(user.getName());
