@@ -112,9 +112,7 @@ public class CalgaryHacks2020 {
 
     public static void createCollabRequest(Assignment asgCollab) {
         CollabInvite collabRequest = new CollabInvite(user, allStudents, asgCollab);
-        
-
-
+        ArrayList<ArrayList<Object>> studentsToInvite = collabRequest.makeACollabInvite(user, allStudents, asgCollab);
     }
     
     public static void userLookForInvites(ArrayList<ArrayList<Object>> studentsToInvite) {
