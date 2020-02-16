@@ -60,8 +60,8 @@ public class CollabInvite {
 		return newInvites;
 	}
 
-	public void sendInvite(String nameOfClass, ArrayList<Invite> invites, ArrayList<Student> possibleCollaborators) {
-
+	public ArrayList<ArrayList<Object>> sendInvite(String nameOfClass, ArrayList<Invite> invites, ArrayList<Student> possibleCollaborators) {
+		ArrayList<ArrayList<Object>> studentsToInvite = new ArrayList<ArrayList<Object>>();
 		for(Student invitee : possibleCollaborators) {
 			Schedule inviteeSchedule = invitee.getStudentSchedule();
 			Set<String> classSet = inviteeSchedule.getClassSet();
@@ -74,11 +74,15 @@ public class CollabInvite {
 					int j = timeSlot[1];
 					int k = timeSlot[2];
 					if (schedule[i][j][k].getEventType().equals("FREETIME")) {
+						ArrayList<Object> invitation = new ArrayList<Object>();
+						invitation.add(invitee);
+						invitation.add(invite.timeSlot);
 						//what happens when they are invited to an event
 					}
 				}
 			}
 		}
+		return studentsToInvite;
 	}
 
 	//if someone accepts
