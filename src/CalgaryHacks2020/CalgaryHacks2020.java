@@ -4,6 +4,7 @@
  */
 
 package CalgaryHacks2020;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -34,11 +35,20 @@ public class CalgaryHacks2020 {
     	System.out.println("Hello world!");
         StudentReader reader = new StudentReader();
         //creating dummy students to interact with the user
-        Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
-        Student bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
-        Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
-        Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
-        Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
+        Student alice = new Student("alice", new Schedule(), "30");
+        Student bob = alice;
+        Student charlie = alice;
+        Student darren = alice;
+        Student evan = alice;
+        try {
+            alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
+            bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
+            charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
+            darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
+            evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
+        } catch (FileNotFoundException e) {
+            System.out.println("This should not happen");
+        }
         userInvitations = new ArrayList<>();
         allStudents = new ArrayList<>();
         allStudents.add(alice);
@@ -77,7 +87,12 @@ public class CalgaryHacks2020 {
 
 
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
-        Schedule studentSchedule = myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
+        Schedule studentSchedule = new Schedule();
+        try {
+            studentSchedule = myScheduleBuilder.read(".\\src\\CalgaryHacks2020\\Students\\MyStudentSchedule.txt");
+        } catch (FileNotFoundException e) {
+            //block intentionally left empty
+        }
 
         user = new Student(name, studentSchedule, ucID);
         System.out.println(user.getName());
@@ -115,7 +130,7 @@ public class CalgaryHacks2020 {
     	}
     	return userInvitations;
     }
-    
+
     public static void acceptCollabRequest(ArrayList<Invite> userInvitations, int indexOfInviteToAccept) {
     	//add user to the students list of the invite
     	Invite acceptedInvite = userInvitations.get(indexOfInviteToAccept);
@@ -127,8 +142,8 @@ public class CalgaryHacks2020 {
     	int hours = acceptedInvite.getAssignment().getHours();
     	addAssignment(name, dateTime, hours);
     	//add invite timeSlot to schedule
-    	
-    	
+
+
     }
 
     public static void addAssignment(String name, int[] dateTime, int hours) {
