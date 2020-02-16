@@ -21,7 +21,7 @@ public class CalgaryHacks2020 {
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
-
+        ArrayList<Student> allStudents =
 
 		StringFrame stringFrame = new StringFrame();
 		stringFrame.start();
