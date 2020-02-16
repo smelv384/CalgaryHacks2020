@@ -30,7 +30,8 @@ public class CalgaryHacks2020 {
         while (!exit) {
             System.out.println("What would you like to do?\n"
                     + "Add collaboration request\n"
-                    + "View collaboration requests\n");
+                    + "View collaboration requests\n"
+                    + "View schedule\n");
         }
 
         kb.close();
