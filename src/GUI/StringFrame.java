@@ -1,15 +1,16 @@
 package GUI;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class StringFrame extends JFrame {
 	
-	private MainPanel currentPanel;
+	private JPanel currentPanel;
 	
 	public StringFrame()
 	{
-		currentPanel = new MainPanel();
+		currentPanel  = CalgaryHacks2020.CalgaryHacks2020.mainPanel;
 		
 		setupFrame();
 	}
@@ -24,9 +25,12 @@ public class StringFrame extends JFrame {
 		this.setVisible(true);
 	}
 	
-	public void changePanel(JFrame frame)
+	public void changePanel(JPanel panel)
 	{
-		System.out.println("FUCK");
+		this.currentPanel = panel;
+		this.setContentPane(currentPanel);
+		this.repaint();
+		this.revalidate();
 	}
 
 }

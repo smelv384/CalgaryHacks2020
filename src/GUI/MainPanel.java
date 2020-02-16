@@ -66,21 +66,39 @@ public class MainPanel extends JPanel {
         myClassesBt.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mouseClicked(MouseEvent arg0) {
-        		//CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(new ClassPanel());
+        		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.classPanel);
         	}
         });
         myClassesBt.setBounds(32, 47, 109, 23);
         add(myClassesBt);
         
         JButton myAssignmentsBt = new JButton("My Assignments");
+        myAssignmentsBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.assignmentPanel);
+        	}
+        });
         myAssignmentsBt.setBounds(32, 106, 109, 23);
         add(myAssignmentsBt);
         
         JButton myNotificationsBt = new JButton("My Notifications");
+        myNotificationsBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.notificationPanel);
+        	}
+        });
         myNotificationsBt.setBounds(32, 167, 109, 23);
         add(myNotificationsBt);
         
         JButton myGroupsBt = new JButton("My Groups");
+        myGroupsBt.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mouseClicked(MouseEvent e) {
+        		CalgaryHacks2020.CalgaryHacks2020.stringFrame.changePanel(CalgaryHacks2020.CalgaryHacks2020.groupsPanel);
+        	}
+        });
         myGroupsBt.setBounds(32, 232, 109, 23);
         add(myGroupsBt);
     }

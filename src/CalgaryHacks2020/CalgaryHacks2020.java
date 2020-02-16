@@ -14,24 +14,29 @@ public class CalgaryHacks2020 {
 	
 	public static StringFrame stringFrame;
 	public static ClassPanel classPanel;
-	public static AssignmentPanel assignemntPanel;
+	public static AssignmentPanel assignmentPanel;
 	public static MainPanel mainPanel;
 	public static GroupsPanel groupsPanel;
+	public static NotificationPanel notificationPanel;
 	
 
     public static void main(String[] args) {
 
         StudentReader reader = new StudentReader();
         //creating dummy students to interact with the user
-        Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
-        Student bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
-        Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
-        Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
-        Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
+        //Student alice = reader.read(".\\src\\CalgaryHacks2020\\Students\\Alice.txt", ".\\src\\CalgaryHacks2020\\Students\\AliceSchedule.txt");
+        //Student bob = reader.read(".\\src\\CalgaryHacks2020\\Students\\Bob.txt", ".\\src\\CalgaryHacks2020\\Students\\BobSchedule.txt");
+        //Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
+        //Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
+        //Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
 
 
-
+		classPanel = new ClassPanel();
+		assignmentPanel = new AssignmentPanel();
+		groupsPanel = new GroupsPanel();
+		mainPanel = new MainPanel();
 		stringFrame = new StringFrame();
+		notificationPanel = new NotificationPanel();
 		stringFrame.start();
 
         String name;
