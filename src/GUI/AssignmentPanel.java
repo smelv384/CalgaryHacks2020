@@ -1,5 +1,6 @@
 package GUI;
 
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.awt.Color;
@@ -22,11 +23,15 @@ import javax.swing.AbstractListModel;
 import java.awt.Dimension;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import CalgaryHacks2020.CollabInvite;
+import CalgaryHacks2020.Assignment;
 
 @SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
+	private ArrayList<Assignment> data = new ArrayList<Assignment>();
 	private JTextField textField;
 	private JTextField textField_1;
+	
 	public AssignmentPanel() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
@@ -103,17 +108,25 @@ public class AssignmentPanel extends JPanel {
 
         String[] columnNames = {"Assignments"};
 
-        Object[][] data = new Object[][] {
-        	{null},{null}
-        };
         setLayout(null);
         
-
-        final JTable table = new JTable(data, columnNames);
+        Assignment[][] temp = {};
+        final JTable table = new JTable(temp, columnNames);
         table.addMouseListener(new MouseAdapter() {
         	@Override
         	public void mousePressed(MouseEvent arg0) {
-        		System.out.println(table.getSelectedRow());
+        		if (table.getSelectedRow() != -1)
+        		{
+        			//convert the arraylist into a array the table can use
+        			Assignment[][] newData = new Assignment[data.size()][1];
+        			for (int i = 0; i < data.size();i++)
+        			{
+        				newData[i][0] = data.get(i);
+        			}
+        			//TOTO: add something to do with sending invites to the other users
+        			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
+        			
+        		}
         	}
         });
 
@@ -141,8 +154,8 @@ public class AssignmentPanel extends JPanel {
 	}
 	
 	//adds an assignemnt to the visable list. must be passed by reference
-	public void addAssignmentToList()
+	public void addAssignmentToList(Assignment ass)
 	{
-		
+		data.add(ass);
 	}
 }
