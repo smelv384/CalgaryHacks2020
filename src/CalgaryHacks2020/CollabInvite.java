@@ -30,6 +30,65 @@ public class CollabInvite {
 		this.assignment = assignment;
 	}
 
+	public ArrayList<ArrayList<Object>> makeACollabInvite(Student inviter, ArrayList<Student> possibleCollaborators, Assignment assignment) {
+		// first find all of the time in the inviter's schedule where they have free time, through an
+		//array list of time slots (stored in the form of 3 integers)
+		Event[][][] schedule = inviter.getStudentSchedule().getTempSchedule();
+		ArrayList<int[]> freeTimeSlots = new ArrayList<int[]>();
+		for (int i = 0; i < 13; i++) {
+	        for (int j = 0; j < 7; j++) {
+	            for (int k = 0; k < 24; k++) {
+	                if (schedule[i][j][k].getEventType().equals("FREETIME")) {
+	                	int[] temp = new int[3];
+	                	temp[0] = i;
+	                	temp[1] = j;
+	                	temp[2] = k;
+	                	freeTimeSlots.add(temp);
+	                }
+	            }
+	        }
+	    }
+		//then create an invite for every free time slot the inviter has in their schedule
+		ArrayList<Invite> newInvites = new ArrayList<Invite>();
+		ArrayList<Student> students = new ArrayList<Student>();
+		students.add(inviter); //inviter is added as a student since "students" means students working on the collaboration
+		for (int[] timeSlot : freeTimeSlots) {
+			Invite newInvite = new Invite(timeSlot, students, assignment);
+			newInvites.add(newInvite);
+		}
+		//then go through the list of potential invitees and select those who are eligible to
+		//collaborate with the inviter (i.e. it shows the invitee what times they're available to collaborate)
+		ArrayList<ArrayList<Object>> studentsToInvite = new ArrayList<ArrayList<Object>>();
+		for(Student invitee : possibleCollaborators) {
+
+		    //For every student in possible collaborators, get their schedule and their set of classes
+			Schedule inviteeSchedule = invitee.getStudentSchedule();
+			Set<String> classSet = inviteeSchedule.getClassSet();
+
+			//If the student is in the class of the collaboration invite, check every time slot that's
+			//also in the array list of free slots, created in the above method.  If they're free,
+			//add the invitee to an invitation
+			if (classSet.contains(assignment.getClassName())) {
+				Event[][][] schedule = inviteeSchedule.getTempSchedule();
+				for (int n = 0; n < newInvites.size(); n++) {
+					Invite invite = newInvites.get(n);
+					int[] timeSlot = invite.timeSlot;
+					int i = timeSlot[0];
+					int j = timeSlot[1];
+					int k = timeSlot[2];
+					if (schedule[i][j][k].getEventType().equals("FREETIME")) {
+						ArrayList<Object> invitation = new ArrayList<Object>();
+						invitation.add(invitee);
+						invitation.add(invite);
+						studentsToInvite.add(invitation);
+					}
+				}
+			}
+		}
+		return studentsToInvite;
+	}
+	
+	
 	//This method finds all of the time in the inviter's schedule where they have free time, through an
 	//array list of time slots (stored in the form of 3 integers)
 	public ArrayList<int[]> findNullTimes(Schedule inviterSchedule) {
