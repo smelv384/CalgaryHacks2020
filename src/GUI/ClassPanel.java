@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.Color;
-
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -9,10 +8,9 @@ import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -20,13 +18,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import CalgaryHacks2020.Assignment;
 import CalgaryHacks2020.Event;
-
-import java.util.Scanner;
 
 @SuppressWarnings("serial")
 public class ClassPanel extends JPanel {
-	
+
 	private Scanner assignmentInput = new Scanner(System.in);
 	private Scanner assignmentDueDate = new Scanner(System.in);
 	private Event myClasses = new Event();
@@ -135,7 +132,7 @@ public class ClassPanel extends JPanel {
         			}
         			//TOTO: add something to do with sending invites to the other users
 //        			 ArrayList<ArrayList<Object>> invites = CollabInvite.makeACollabInvite(CalgaryHacks2020.CalgaryHacks2020.user, CalgaryHacks2020.CalgaryHacks2020.allStudents, newData[table.getSelectedRow()][0]);
-        			
+
         		}
         	}
         });
@@ -162,7 +159,7 @@ public class ClassPanel extends JPanel {
         JButton btnNewButton_4 = new JButton("+ Add Assignment");
         btnNewButton_4.setBounds(112, 38, 185, 80);
         panel_1.add(btnNewButton_4);
-        
+
         btnNewButton_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -171,6 +168,8 @@ public class ClassPanel extends JPanel {
 				String name;
 		        name = JOptionPane.showInputDialog("Assignment Name",
 		         "Please enter an Assignment:");
+		        Assignment newAsg = new Assignment(name, new int[] {0, 1, 3}, 3, "CLAS");
+		        CalgaryHacks2020.CalgaryHacks2020.assignmentPanel.addAssignmentToList(newAsg);
 			}
         });
 	}

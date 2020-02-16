@@ -44,9 +44,6 @@ public class ScheduleBuilder {
             }
 
             String startTime = classParts[2];
-            System.out.println(classParts[0] + classParts[2]);
-            System.out.println(( (( Integer.parseInt(startTime.split(":")[0]) + 16 ) ) % 12 ) * 2  );
-            //System.out.println(startTime.split(":")[1]);
             int startInd = ( ( ( Integer.parseInt(startTime.split(":")[0]) + 16 ) % 12 ) * 2 ) +
 
                     ( ( Integer.parseInt(startTime.split(":")[1]) / 30));
