@@ -5,11 +5,11 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class StringFrame extends JFrame {
 	
-	private classPanel currentPanel;
+	private MainPanel currentPanel;
 	
 	public StringFrame()
 	{
-		currentPanel = new classPanel();
+		currentPanel = new MainPanel();
 		
 		setupFrame();
 	}
