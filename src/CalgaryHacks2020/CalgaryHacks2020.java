@@ -46,16 +46,12 @@ public class CalgaryHacks2020 {
         allStudents.add(darren);
         allStudents.add(evan);
 
-        String name;
-        String ucID;
+        String name = "SGA";
+        String ucID = "531";
         boolean exit = false;
 
         Scanner kb = new Scanner(System.in);
 
-        System.out.println("Please enter your name");
-        name = kb.next();
-        System.out.println("Please enter your ucID");
-        ucID = kb.next();
 
 
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();

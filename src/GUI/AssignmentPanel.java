@@ -6,6 +6,7 @@ import java.awt.Color;
 import javax.swing.JList;
 import javax.swing.JButton;
 import javax.swing.JSplitPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
@@ -15,23 +16,20 @@ import java.awt.event.MouseEvent;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import javax.swing.border.BevelBorder;
+import javax.swing.DefaultListModel;
+import javax.swing.AbstractListModel;
+import java.awt.Dimension;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
 
 @SuppressWarnings("serial")
 public class AssignmentPanel extends JPanel {
-	private JTextField txtMyAssignments;
 	private JTextField textField;
 	private JTextField textField_1;
 	public AssignmentPanel() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
-		
-		JList list = new JList();
-		list.setBounds(179, 15, 0, 0);
-		add(list);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(274, 14, 2, 2);
-		add(scrollPane);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
@@ -102,24 +100,49 @@ public class AssignmentPanel extends JPanel {
 		gbc_myGroupsButton.gridy = 3;
 		panel.add(myGroupsButton, gbc_myGroupsButton);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.GRAY);
-		panel_1.setBounds(465, 15, 158, 300);
-		add(panel_1);
+
+        String[] columnNames = {"Assignments"};
+
+        Object[][] data = new Object[][] {
+        	{null},{null}
+        };
+        setLayout(null);
+        
+
+        final JTable table = new JTable(data, columnNames);
+        table.addMouseListener(new MouseAdapter() {
+        	@Override
+        	public void mousePressed(MouseEvent arg0) {
+        		System.out.println(table.getSelectedRow());
+        	}
+        });
+
+        table.setPreferredScrollableViewportSize(new Dimension(200, 100));
+        table.setFillsViewportHeight(true);
+
+        //Create the scroll pane and add the table to it.
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(250, 20, 200, 450);
+
+        //Add the scroll pane to this panel.
+        add(scrollPane);
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBounds(507, 0, 393, 500);
+        add(panel_1);
+        panel_1.setLayout(null);
+        
+        JButton btnNewButton_4 = new JButton("+ Create Collaboration");
+        btnNewButton_4.setBounds(112, 38, 185, 80);
+        panel_1.add(btnNewButton_4);
 		
-		txtMyAssignments = new JTextField();
-		txtMyAssignments.setHorizontalAlignment(SwingConstants.CENTER);
-		txtMyAssignments.setForeground(Color.WHITE);
-		txtMyAssignments.setText("My Assignments");
-		txtMyAssignments.setBackground(Color.GRAY);
-		panel_1.add(txtMyAssignments);
-		txtMyAssignments.setColumns(10);
-		
-		JButton btnNewButton_4 = new JButton("+ Create Collaboration");
-		btnNewButton_4.setBounds(665, 15, 154, 21);
-		add(btnNewButton_4);
 		
 		
+	}
+	
+	//adds an assignemnt to the visable list. must be passed by reference
+	public void addAssignmentToList()
+	{
 		
 	}
 }

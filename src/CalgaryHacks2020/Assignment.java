@@ -11,10 +11,10 @@ public class Assignment {
     //Setters should probably have their variables processed outside of the method so that
     //the program can integrate easily with a GUI
 
-    private String name;
+    private String name; //the name of the assignment
     private int[] dateTime; //Since dates and times are stored as 3-dimensional arrays, this is the index of a specific date and time
-    private int hours;
-    private String className;
+    private int hours; //how long you want o spend on it
+    private String className; //the name of the class the assignment is for
 
     public Assignment(String name, int[] dateTime, int hours, String className) {
         this.className = name;
