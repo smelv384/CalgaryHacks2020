@@ -3,7 +3,6 @@
  * Author: Shaemus Melvin
  */
 package CalgaryHacks2020;
-import java.util.HashSet;
 
 public class Student {
 
@@ -13,16 +12,14 @@ public class Student {
 	private String name;
 	private Schedule studentSchedule;
 	private final String ucID;
-	private HashSet<String> classes;
 
 
 
-	public Student(String name, Schedule studentSchedule, String ucID, HashSet<String> classes)
+	public Student(String name, Schedule studentSchedule, String ucID)
 	{
 		this.name = name;
 		this.studentSchedule = studentSchedule;
 		this.ucID = ucID;
-		this.classes = classes;
 
 	}
 
@@ -38,9 +35,6 @@ public class Student {
 	    return ucID;
 	}
 
-	public HashSet<String> getClasses() {
-	    return classes;
-	}
 
 	public void setName(String name) {
 	    this.name = name;
@@ -50,9 +44,6 @@ public class Student {
 	    this.studentSchedule = studentSchedule;
 	}
 
-	public void addClass(String studentClass) {
-	    classes.add(studentClass);
-	}
 
 
 }
