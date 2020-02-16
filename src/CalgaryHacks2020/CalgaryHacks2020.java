@@ -68,16 +68,12 @@ public class CalgaryHacks2020 {
         newInvite = new Invite(new int[] {2, 4, 8}, evanList, new Assignment("Deliverable 2", new int[] {3, 5, 10}, 3, "SENG300001"));
         allInvitations.add(newInvite);
 
-        String name;
-        String ucID;
+        String name = "SGA";
+        String ucID = "531";
         boolean exit = false;
 
         Scanner kb = new Scanner(System.in);
 
-        System.out.println("Please enter your name");
-        name = kb.next();
-        System.out.println("Please enter your ucID");
-        ucID = kb.next();
 
 
         ScheduleBuilder myScheduleBuilder = new ScheduleBuilder();
