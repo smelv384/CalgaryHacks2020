@@ -19,8 +19,20 @@ public class Invite {
 		this.students = students;
 		this.assignment = assignment;
 	}
+	
+	public ArrayList<Student> getStudents() {
+		return students;
+	}
+	
+	public Assignment getAssignment() {
+		return assignment;
+	}
 
-	public static void addStudent(ArrayList<Student> students, Student studentToAdd) {
+	public int[] getTimeSlot() {
+		return timeSlot;
+	}
+	
+	public void addStudent(ArrayList<Student> students, Student studentToAdd) {
 		students.add(studentToAdd);
 	}
 

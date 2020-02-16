@@ -19,7 +19,7 @@ public class CalgaryHacks2020 {
 
     public static Student user;
     public static ArrayList<Student> allStudents;
-    public static ArrayList<Invite> allInvitations;
+    public static ArrayList<Invite> userInvitations;
 
 	public static StringFrame stringFrame;
 	public static ClassPanel classPanel;
@@ -39,7 +39,7 @@ public class CalgaryHacks2020 {
         Student charlie = reader.read(".\\src\\CalgaryHacks2020\\Students\\Charlie.txt", ".\\src\\CalgaryHacks2020\\Students\\CharlieSchedule.txt");
         Student darren = reader.read(".\\src\\CalgaryHacks2020\\Students\\Darren.txt", ".\\src\\CalgaryHacks2020\\Students\\DarrenSchedule.txt");
         Student evan = reader.read(".\\src\\CalgaryHacks2020\\Students\\Evan.txt", ".\\src\\CalgaryHacks2020\\Students\\EvanSchedule.txt");
-        allInvitations = new ArrayList<>();
+        userInvitations = new ArrayList<>();
         allStudents = new ArrayList<>();
         allStudents.add(alice);
         allStudents.add(bob);
@@ -50,23 +50,23 @@ public class CalgaryHacks2020 {
         ArrayList<Student> aliceList = new ArrayList<>();
         aliceList.add(alice);
         Invite newInvite = new Invite(new int[] {0, 3, 13}, aliceList, new Assignment("Midterm", new int[] {4, 1, 13}, 5, "PSYC205001"));
-        allInvitations.add(newInvite);
+        userInvitations.add(newInvite);
 
         ArrayList<Student> mathList = new ArrayList<>();
         mathList.add(charlie);
         mathList.add(bob);
         newInvite = new Invite(new int[] {1, 4, 16}, mathList, new Assignment("Assignment 1", new int[] {2, 3, 7}, 2, "MATH279001"));
-        allInvitations.add(newInvite);
+        userInvitations.add(newInvite);
 
         ArrayList<Student> darrenList = new ArrayList<>();
         darrenList.add(darren);
         newInvite = new Invite(new int[] {1, 2, 8}, darrenList, new Assignment("Quiz 1", new int[] {1, 4, 1}, 1, "PHIL377001"));
-        allInvitations.add(newInvite);
+        userInvitations.add(newInvite);
 
         ArrayList<Student> evanList = new ArrayList<>();
         evanList.add(evan);
         newInvite = new Invite(new int[] {2, 4, 8}, evanList, new Assignment("Deliverable 2", new int[] {3, 5, 10}, 3, "SENG300001"));
-        allInvitations.add(newInvite);
+        userInvitations.add(newInvite);
 
         String name = "SGA";
         String ucID = "531";
@@ -116,17 +116,19 @@ public class CalgaryHacks2020 {
     	return userInvitations;
     }
     
-    public static void acceptCollabRequest(ArrayList<Invite> userInvitations) {
+    public static void acceptCollabRequest(ArrayList<Invite> userInvitations, int indexOfInviteToAccept) {
+    	//add user to the students list of the invite
+    	Invite acceptedInvite = userInvitations.get(indexOfInviteToAccept);
+    	ArrayList<Student> students = new ArrayList<Student>(acceptedInvite.getStudents());
+    	acceptedInvite.addStudent(students, user);
+    	//add assignment to the user's assignments
+    	String name = acceptedInvite.getAssignment().getName();
+    	int[] dateTime = acceptedInvite.getAssignment().getDate();
+    	int hours = acceptedInvite.getAssignment().getHours();
+    	addAssignment(name, dateTime, hours);
+    	//add invite timeSlot to schedule
     	
     	
-    }
-
-    public static void viewSchedule() {
-
-        //present user.getSchedule
-        if (/*User selects to create an assignment*/) {
-
-        }
     }
 
     public static void addAssignment(String name, int[] dateTime, int hours) {
