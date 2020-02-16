@@ -4,13 +4,13 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class AvailablrGroups extends JPanel{
-	public AvailablrGroups() {
+public class AvailableGroups extends JPanel{
+	public AvailableGroups() {
 		setBackground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.MAGENTA);
+		panel.setBackground(Color.lightGray);
 		panel.setBounds(0, 0, 116, 300);
 		add(panel);
 		
