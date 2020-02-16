@@ -4,11 +4,11 @@ import javax.swing.JFrame;
 
 public class StringFrame extends JFrame {
 	
-	private StringPanel currentPanel;
+	private classPanel currentPanel;
 	
 	public StringFrame()
 	{
-		currentPanel = new StringPanel();
+		currentPanel = new classPanel();
 		
 		setupFrame();
 	}
@@ -19,7 +19,7 @@ public class StringFrame extends JFrame {
 	
 	public void start()
 	{
-		this.setSize(500,500);
+		this.setSize(900,500);
 		this.setVisible(true);
 	}
 
