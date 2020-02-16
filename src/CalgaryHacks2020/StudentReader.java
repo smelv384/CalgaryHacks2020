@@ -8,13 +8,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class StudentReader {
-    private String fileName;
 
-    public StudentReader(String fileName) {
-        this.fileName = fileName;
+    public StudentReader() {
     }
 
-    public Student read(String scheduleFileName) {
+    public Student read(String fileName, String scheduleFileName) {
         Scanner in = new Scanner(System.in);
         try {
             File inFile = new File(fileName);
