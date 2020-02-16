@@ -15,8 +15,7 @@ public class StudentReader {
 
         String studentName = in.nextLine();
         Schedule studentSchedule;
-        ScheduleBuilder studentScheduleBuilder = new ScheduleBuilder();
-        studentSchedule = studentScheduleBuilder.read(scheduleFileName);
+        studentSchedule = ScheduleBuilder.read(scheduleFileName);
         String studentUcID = in.nextLine();
 
         Student newStudent = new Student(studentName, studentSchedule, studentUcID);
