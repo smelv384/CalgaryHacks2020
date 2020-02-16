@@ -130,11 +130,13 @@ public class CalgaryHacks2020 {
     	Invite acceptedInvite = userInvitations.get(indexOfInviteToAccept);
     	ArrayList<Student> students = new ArrayList<Student>(acceptedInvite.getStudents());
     	acceptedInvite.addStudent(students, user);
+
     	//add assignment to the user's assignments
     	String name = acceptedInvite.getAssignment().getName();
     	int[] dateTime = acceptedInvite.getAssignment().getDate();
     	int hours = acceptedInvite.getAssignment().getHours();
     	addAssignment(name, dateTime, hours);
+
     	//add invite timeSlot to schedule
     	int[] timeSlotToAdd = acceptedInvite.timeSlot;
     	Event[][][] userSchedule = user.getStudentSchedule().getTempSchedule();
@@ -161,77 +163,77 @@ public class CalgaryHacks2020 {
         ArrayList<ArrayList<Object>> studentsToInvite = CollabInvite.makeACollabInvite(user, allStudents, asgCollab);
         return studentsToInvite;
     }
-    
+
 
     public static void test() {
-    	
+
     	//tests viewCollabRequests
     	//make A<A<O>>
     	ArrayList<ArrayList<Object>> testInvitations = new ArrayList<ArrayList<Object>>();
-    	
+
     	//make A<O>s
     	ArrayList<Object> testInvite1 = new ArrayList<Object>();
     	ArrayList<Object> testInvite2 = new ArrayList<Object>();
     	ArrayList<Object> testInvite3 = new ArrayList<Object>();
     	ArrayList<Object> testInvite4 = new ArrayList<Object>();
-    	
+
     	//make Os index 0
     	Object Alice = new Object();
     	Object Bob = new Object();
     	Object Charlie = new Object();
-    	
+
     	//prep for Os index 1
     	int[] timeSlot = new int[3];
     	timeSlot[0] = 0;
     	timeSlot[1] = 2;
     	timeSlot[2] = 1;
-    	
+
     	int[] assignmentDue = new int[3];
     	assignmentDue[0] = 1;
     	assignmentDue[1] = 1;
     	assignmentDue[2] = 1;
-    	
+
     	Assignment assignment1 = new Assignment("Assignment", assignmentDue, 4, "PSYC205001 mon 2:30 5:30");
-    	
+
     	//make Os index 1
     	Object invite1 = new Object();
     	Object invite2 = new Object();
     	Object invite3 = new Object();
     	Invite invite4 = new Invite(timeSlot, allStudents, assignment1);
-    	
+
     	//add A<O>1's index 0 and index 1
     	testInvite1.add(Alice);
     	testInvite1.add(invite1);
-    	
+
     	//add A<O>2's index 0 and index 1
     	testInvite2.add(Bob);
     	testInvite2.add(invite2);
-    	
+
     	//add A<O>3's index 0 and index 1
     	testInvite3.add(Charlie);
     	testInvite3.add(invite3);
-    	
+
     	//add A<O>4's index 0 and index 1
     	testInvite4.add(user);
     	testInvite4.add(invite4);
-    	
+
     	//fill A<A<O>> with A<O>s
     	testInvitations.add(testInvite1);
     	testInvitations.add(testInvite2);
     	testInvitations.add(testInvite3);
     	testInvitations.add(testInvite4);
-    	
+
     	//call viewCollabRequest
     	ArrayList<Invite> Invitations = viewCollabRequests(testInvitations);
-    	
+
     	//add invitations relevant to user to userInvitations
     	for (int i = 0; i < Invitations.size(); i++) {
     		userInvitations.add(Invitations.get(i));
     	}
-    	
+
     	//end of test
     }
-    
-    
-    
+
+
+
 }
