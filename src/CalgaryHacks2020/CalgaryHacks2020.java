@@ -105,8 +105,15 @@ public class CalgaryHacks2020 {
 
     }
 
-    public static void viewCollabRequests(ArrayList<Invite> allInvitations) {
+    public static ArrayList<Invite> viewCollabRequests(ArrayList<ArrayList<Object>> allInvitations) {
         //show list of collab requests
+    	ArrayList<Invite> userInvitations = new ArrayList<Invite>();
+    	for (ArrayList<Object> invitation : allInvitations) {
+    		if (invitation.get(0) == user) {
+    			userInvitations.add((Invite)invitation.get(1));
+    		}
+    	}
+    	return userInvitations;
     }
 
     public static void viewSchedule() {
@@ -130,15 +137,6 @@ public class CalgaryHacks2020 {
 
     public static void createCollabRequest(Assignment asgCollab) {
         ArrayList<ArrayList<Object>> studentsToInvite = CollabInvite.makeACollabInvite(user, allStudents, asgCollab);
-    }
-
-    public static void userLookForInvites(ArrayList<ArrayList<Object>> studentsToInvite) {
-    	for (ArrayList<Object> invitation : studentsToInvite) {
-    		if (invitation.get(0) == user) {
-
-    		}
-    	}
-
     }
 
 }
